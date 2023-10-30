@@ -6,13 +6,13 @@ metadata:
   finalizers:
     - resources-finalizer.argocd.argoproj.io
 spec:
-  project: production
+  project: project-infrastructure-poc
   source:
     path: infra/s3
     repoURL: https://github.com/sahmed-ssc-spc/poc-s3-bucket.git
     targetRevision: HEAD
   destination:
-    namespace: production
+    namespace: production-poc
     server: https://kubernetes.default.svc
   syncPolicy:
     automated:

@@ -3,7 +3,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: production
+  name: production-poc
   namespace: argocd
   finalizers:
     - resources-finalizer.argocd.argoproj.io
@@ -15,7 +15,7 @@ spec:
     path: controller
   destination:
     server: https://kubernetes.default.svc
-    namespace: production
+    namespace: production-poc
   syncPolicy:
     automated:
       selfHeal: true
