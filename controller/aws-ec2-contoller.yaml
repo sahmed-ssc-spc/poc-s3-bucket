@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: poc-production-ec2
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: project-infrastructure-poc
+  source:
+    path: infra/ec2
+    repoURL: https://github.com/sahmed-ssc-spc/poc-s3-bucket.git
+    targetRevision: HEAD
+  destination:
+    namespace: production-poc
+    server: https://kubernetes.default.svc
+  syncPolicy:
+    automated:
+      selfHeal: true
+      prune: true
