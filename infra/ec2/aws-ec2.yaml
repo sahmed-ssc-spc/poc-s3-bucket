@@ -1,0 +1,13 @@
+apiVersion: ec2.aws.upbound.io/v1beta1
+kind: Instance
+metadata:
+  name: test
+spec:
+  forProvider:
+    ami: ami-0d9858aa3c6322f73
+    instanceType: t2.micro
+    networkInterface:
+      - deviceIndex: 0
+        networkInterfaceIdRef:
+          name: test
+    region: ca-central-1
